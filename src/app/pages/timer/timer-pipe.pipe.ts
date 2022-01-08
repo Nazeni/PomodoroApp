@@ -1,0 +1,15 @@
+import { Pipe, PipeTransform } from "@angular/core"
+
+@Pipe({name: 'timer'})
+
+export class TimerPipe implements PipeTransform{
+ transform(value: number) {
+      let minutes: any = Math.floor(value / 60);
+      let seconds: any = (value - minutes * 60)
+      // let minutes:any = value;
+      // let seconds: any = 60 * (value - minutes)
+       minutes < 10 ? minutes = "0" + (+minutes): minutes;
+      seconds < 10 ? seconds = "0" + (+seconds): minutes;
+      return minutes + ':' + seconds;
+   }
+}
